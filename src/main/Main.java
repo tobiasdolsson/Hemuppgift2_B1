@@ -35,6 +35,11 @@ public class Main {
 	public void timeToXor() {
 		String alice = aliceSecret.toString(2);
 		String bob = bobSecret.toString(2);
+		
+		alice = "0000000000000000".substring(alice.length()) + alice;
+		bob = "0000000000000000".substring(bob.length()) + bob;
+
+	
 		// System.out.println(aliceSecret);
 		System.out.println(bob);
 		System.out.println(alice);
@@ -46,7 +51,7 @@ public class Main {
 			done += xor;
 
 		}
-		System.out.println(done);
+		//System.out.println(done);
 	}
 
 }
