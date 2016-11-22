@@ -5,10 +5,10 @@ import java.util.Arrays;
 
 public class DC {
 
-	private BigInteger SA, DA, SB, DB, m;
+	private String SA, DA, SB, DB, m;
 	private int b;
 
-	public DC(BigInteger SA, BigInteger DA, BigInteger SB, BigInteger DB, BigInteger m, int b) {
+	public DC(String SA, String DA, String SB, String DB, String m, int b) {
 
 		this.b = b;
 		this.SA = SA;
@@ -27,18 +27,18 @@ public class DC {
 
 	private String sendMessage() {
 
-		String brodcastedData = notXor(SA.toString(2), SB.toString(2), m.toString(2));
-		String ABbrodcastedData = xor(DA.toString(2), DB.toString(2));
-		String message = xor(brodcastedData, ABbrodcastedData);
-		return message;
+		String brodcastedData = notXor(toBinary(SA), toBinary(SB), toBinary(m));
+		
+		return toHex(brodcastedData);
+		
 	}
 
 	private String noMessage() {
-		String brodcastedData = xor(SA.toString(2), SB.toString(2));
-		String ABbrodcastedData = xor(DA.toString(2), DB.toString(2));
+		String brodcastedData = xor(toBinary(SA), toBinary(SB));
+		String ABbrodcastedData = xor(toBinary(DA), toBinary(DB));
 		String message = xor(brodcastedData, ABbrodcastedData);
-
-		return brodcastedData + message;
+		return toHex((brodcastedData + message));
+	
 	}
 
 	private String xor(String s1, String s2) {
@@ -61,14 +61,13 @@ public class DC {
 		s2 = "0000000000000000".substring(s2.length()) + s2;
 		m = "0000000000000000".substring(m.length()) + m;
 		String done = "";
-	
+
 		for (int i = 0; i < 16; i++) {
 			// 1 NOTXOR
 			// 0 XOR
 
 			if ((Integer.valueOf(m.substring(i, i + 1))) == 0) {
-				
-			
+
 				int xor = (Integer.valueOf(s1.substring(i, i + 1))) ^ (Integer.valueOf(s2.substring(i, i + 1)));
 
 				done += xor;
@@ -81,8 +80,17 @@ public class DC {
 			}
 
 		}
-		System.out.println(done);
+		
 		return done;
 	}
+	
+	private String toBinary(String s){
+		return new BigInteger(s, 16).toString(2);
+	}
+	
+	private String toHex(String s){
+		return new BigInteger(s, 2).toString(16);
+	}
+	
 
 }

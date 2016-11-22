@@ -6,23 +6,19 @@ public class Main {
 
 	public static void main(String args[]) {
 
-		String aliceHex = "27C2";
-		BigInteger aliceSecret = new BigInteger(aliceHex, 16);
-		String bobHex = "0879";
-		BigInteger bobSecret = new BigInteger(bobHex, 16);
-		String aliceBroadcast = "35F6";
-		BigInteger aBroadcast = new BigInteger(aliceBroadcast, 16);
-		String bobBroadcast = "1A4D";
-		BigInteger bBroadcast = new BigInteger(bobBroadcast, 16);
-		String message = "27BC";
-		BigInteger m = new BigInteger(message, 16);
-		int b = 1;
+		String SA = "75F5";
+	
+		String SB = "B1AC";
+	
+		String DA = "67C1";
+	
+		String DB = "A398";
+	
+		String m = "00BC";
+	
+		int b = 0;
 
-		DC dc = new DC(aliceSecret, aBroadcast, bobSecret, bBroadcast, m, b);
-
-		
-
-		//System.out.println(dc.xor(aliceSecret.toString(2), bobSecret.toString(2)));
+		DC dc = new DC(SA, DA, SB, DB, m, b);
 
 	}
 
