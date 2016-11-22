@@ -18,7 +18,7 @@ public class Main {
 
 	public Main() {
 		System.out.println(aliceSecret);
-		
+		//asiodjasoijd 
 		String str = aliceSecret.toString(2);
 		System.out.println(str);
 		String str1 = str.substring(1, 2);
