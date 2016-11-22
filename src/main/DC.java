@@ -5,26 +5,8 @@ import java.util.Arrays;
 
 public class DC {
 
-	public String aliceHex = "27C2";
-	public BigInteger aliceSecret = new BigInteger(aliceHex, 16);
-	public String bobHex = "0879";
-	public BigInteger bobSecret = new BigInteger(bobHex, 16);
-	public String aliceBroadcast = "35F6";
-	public BigInteger aBroadcast = new BigInteger(aliceBroadcast, 16);
-	public String bobBroadcast = "1A4D";
-	public BigInteger bBroadcast = new BigInteger(bobBroadcast, 16);
-	public String message = "27BC";
-	public BigInteger m = new BigInteger(message, 16);
-
 	public DC() {
-		System.out.println(aliceSecret);
 
-		String str = aliceSecret.toString(2);
-		System.out.println(str);
-		String str1 = str.substring(1, 2);
-		System.out.println(str1);
-
-		// System.out.println(bobSecret);
 	}
 
 	
