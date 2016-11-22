@@ -9,7 +9,18 @@ public class DC {
 
 	}
 
+	public String sendMessage(){
+		
+		//Kolla meddelande, om 1, gör not xor. om 0 gör xor av secrets.
+		
+		return null;
+	}
 	
+	public String noMessage(){
+		//Xora alltid, svaret blir din broadcast, appenda xor av allt
+		
+		return null;
+	}
 	
 	public String xor(String s1, String s2){
 		s1 = "0000000000000000".substring(s1.length()) + s1;

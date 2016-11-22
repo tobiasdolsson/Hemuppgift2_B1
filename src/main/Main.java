@@ -18,8 +18,15 @@ public class Main {
 		BigInteger bBroadcast = new BigInteger(bobBroadcast, 16);
 		String message = "27BC";
 		BigInteger m = new BigInteger(message, 16);
+		int b = 1;
 		
 		DC dc = new DC();
+		
+		if(b==1){
+			dc.sendMessage();
+		}else{
+			dc.noMessage();
+		}
 	
 		System.out.println(dc.xor(aliceSecret.toString(2), bobSecret.toString(2)));
 		
